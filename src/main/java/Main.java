@@ -2,10 +2,7 @@ package main.java;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.InputMismatchException;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 
 public class Main {
@@ -15,10 +12,11 @@ public class Main {
         Map<LocalDate, String> books = new TreeMap<>();
         books.put(LocalDate.of(2019, 06, 02), "Head First Java");
         books.put(LocalDate.of(2019, 05, 22), "ProGit");
-        books.put(LocalDate.of(2018, 02, 10), "Deadly Embrace - Jackie Colins");
-        books.put(LocalDate.of(2017, 05, 23), "AfterEffects - all and more");
+        books.put(LocalDate.of(2018, 02, 10), "Deadly Embrace-Jackie Colins");
+        books.put(LocalDate.of(2017, 05, 23), "AfterEffects-all and more");
 
-        System.out.println("You already took the next books:\n" + books.entrySet().toString().replace(",", "\n").replace("[", " ").replace("]", ""));
+        System.out.println("You already was in the library in dates:\n" + books.keySet().toString().replace(",", "\n").replace("[", " ").replace("]", ""));
+        System.out.println("and took the next books: " + books.values().toString().replace("[", "").replace("]", "."));
 
         Scanner sc = new Scanner(System.in);
         try {
@@ -30,8 +28,7 @@ public class Main {
             int month = sc.nextInt();
             System.out.println("-Enter Day:");
             int day = sc.nextInt();
-            System.out.print("Your book is: ");
-            System.out.println(books.getOrDefault(LocalDate.of(year, month, day), "In this date, you didn't take any books yet"));
+            System.out.println("Your book is: " + books.getOrDefault(LocalDate.of(year, month, day), "In this date, you didn't take any books yet"));
 
         } catch (InputMismatchException e) {
             System.out.println("Incorrect date!");
