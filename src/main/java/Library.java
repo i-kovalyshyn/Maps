@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 class Library {
-      Map<LocalDate, String> putBook(){;
+      Map<LocalDate, String> putBook(){
 
         Map<LocalDate, String>books = new TreeMap<>();
         books.put(LocalDate.of(2019, 06, 02), "Head First Java");
@@ -17,10 +17,17 @@ class Library {
         books.put(LocalDate.of(2017, 05, 23), "AfterEffects-all and more");
 
         System.out.println("You already was in the library in dates:\n"
-                + books.keySet().toString().replace(",", "\n")
+                + books
+                .keySet()
+                .toString()
+                .replace(",", "\n")
                 .replace("[", " ").replace("]", ""));
         System.out.println("and took the next books: "
-                + books.values().toString().replace("[", "").replace("]", "."));
+                + books
+                .values()
+                .toString()
+                .replace("[", "")
+                .replace("]", "."));
 
     return books;
     }
