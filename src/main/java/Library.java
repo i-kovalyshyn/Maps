@@ -8,31 +8,23 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 class Library {
-      Map<LocalDate, String> putBook(){
+    Map<LocalDate, String> putBook() {
 
-        Map<LocalDate, String>books = new TreeMap<>();
+        Map<LocalDate, String> books = new TreeMap<>();
         books.put(LocalDate.of(2019, 06, 02), "Head First Java");
         books.put(LocalDate.of(2019, 05, 22), "ProGit");
         books.put(LocalDate.of(2018, 02, 10), "Deadly Embrace-Jackie Colins");
         books.put(LocalDate.of(2017, 05, 23), "AfterEffects-all and more");
 
-        System.out.println("You already was in the library in dates:\n"
-                + books
-                .keySet()
-                .toString()
-                .replace(",", "\n")
-                .replace("[", " ").replace("]", ""));
-        System.out.println("and took the next books: "
-                + books
-                .values()
-                .toString()
-                .replace("[", "")
-                .replace("]", "."));
+        System.out.println("You already was in the library in dates:");
+        books.keySet().forEach(System.out::println);
+        System.out.println("---and took the next books:--- ");
+        books.values().forEach(System.out::println);
 
-    return books;
+        return books;
     }
 
-     void findBook(Map<LocalDate,String> books) {
+    void findBook(Map<LocalDate, String> books) {
 
         Scanner sc = new Scanner(System.in);
         try {
@@ -53,6 +45,8 @@ class Library {
             System.out.println("Incorrect date format! You should enter: Year-xxxx/ Month-xx/ Date-xx");
         }
         sc.close();
+
+
     }
 
 
